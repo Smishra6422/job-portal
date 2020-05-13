@@ -1,0 +1,40 @@
+.sidenavbar {
+  min-height: 45.5rem;
+  max-height: 100vh;
+  border: 2px solid #111;
+  margin-top: 2rem;
+
+  .sidenavbar-container {
+    h6 {
+      text-align: left;
+      padding-left: 0.8rem;
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+    }
+    .sidenavbar-items {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      .sidenavbar-item {
+        list-style: none;
+        text-align: left;
+        padding: 0.2rem 0.8rem;
+        margin-top: 1rem;
+
+        & a {
+          text-decoration: none;
+          font-size: 1.2rem;
+          color: #000;
+          opacity: 0.9;
+
+          .fa {
+            margin-right: 0.6rem;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
