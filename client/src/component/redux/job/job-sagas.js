@@ -15,7 +15,7 @@ import {
 
 export function* fetchLiveJobAsync() {
   try {
-    const fetchResult = yield call(axios, "http://localhost:5002/getjob");
+    const fetchResult = yield call(axios, "/user");
     const Jobs = yield fetchResult.data;
     yield put(fetchLiveJobSuccess(Jobs));
   } catch (error) {
@@ -25,7 +25,7 @@ export function* fetchLiveJobAsync() {
 
 export function* fetchAcceptedJobAsync() {
   try {
-    const fetchResult = yield call(axios, "http://localhost:5002/getacceptjob");
+    const fetchResult = yield call(axios, "/user/getacceptjob");
     const Jobs = yield fetchResult.data;
     yield put(fetchAcceptedJobSuccess(Jobs));
   } catch (error) {
@@ -35,7 +35,7 @@ export function* fetchAcceptedJobAsync() {
 
 export function* fetchRejectedJobAsync() {
   try {
-    const fetchResult = yield call(axios, "http://localhost:5002/getrejectjob");
+    const fetchResult = yield call(axios, "/user/getrejectjob");
     const Jobs = yield fetchResult.data;
     yield put(fetchRejectedJobSuccess(Jobs));
   } catch (error) {
@@ -53,11 +53,7 @@ export function* fetchLiveJobRestart() {
 
 export function* addAcceptedJobAsync({ payload }) {
   try {
-    const fetchResult = yield call(
-      axios.post,
-      "http://localhost:5002/addacceptjob",
-      payload
-    );
+    const fetchResult = yield call(axios.post, "/admin/addacceptjob", payload);
     // console.log(fetchResult);
     alert(fetchResult.data + " Job Added to Accecpted Category !");
     yield call(fetchLiveJobRestart);
@@ -68,11 +64,7 @@ export function* addAcceptedJobAsync({ payload }) {
 
 export function* addRejectedJobAsync({ payload }) {
   try {
-    const fetchResult = yield call(
-      axios.post,
-      "http://localhost:5002/addrejectjob",
-      payload
-    );
+    const fetchResult = yield call(axios.post, "/admin/addrejectjob", payload);
     // console.log(fetchResult);
     alert(fetchResult.data + " Job Added to Rejected Category !");
     yield call(fetchLiveJobRestart);

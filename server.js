@@ -25,8 +25,8 @@ mongoose
   .then(() => console.log("MONGODB CONNECTED"))
   .catch((err) => console.log(err));
 
-app.use(adminRoutes);
-app.use(jobRoutes);
+app.use("/admin", adminRoutes);
+app.use("/user", jobRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
