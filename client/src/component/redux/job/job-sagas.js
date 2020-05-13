@@ -15,7 +15,7 @@ import {
 
 export function* fetchLiveJobAsync() {
   try {
-    const fetchResult = yield call(axios, "/user");
+    const fetchResult = yield call(axios, "/user/getjob");
     const Jobs = yield fetchResult.data;
     yield put(fetchLiveJobSuccess(Jobs));
   } catch (error) {
