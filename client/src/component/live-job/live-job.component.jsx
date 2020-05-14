@@ -21,6 +21,7 @@ const LiveJob = ({
   fetchLiveJobStart,
   addAcceptedJobStart,
   addRejectedJobStart,
+  history,
 }) => {
   useEffect(() => {
     fetchLiveJobStart();
@@ -36,6 +37,7 @@ const LiveJob = ({
             acceptJob={addAcceptedJobStart}
             rejectJob={addRejectedJobStart}
             customButton
+            history={history}
           />
         ))
       )}

@@ -10,6 +10,7 @@ const JobPreview = ({
   acceptedJob,
   rejectedJob,
   addCandidate,
+  history,
 }) => {
   return (
     <div className="job-container">
@@ -62,12 +63,24 @@ const JobPreview = ({
       {customButton ? (
         <div className="custom-buttons">
           <div className="custom-button">
-            <button className="button" onClick={() => acceptJob(job)}>
+            <button
+              className="button"
+              onClick={() => {
+                acceptJob(job);
+                history.push("/acceptedjob");
+              }}
+            >
               Accept
             </button>
           </div>
           <div className="custom-button">
-            <button className="button" onClick={() => rejectJob(job)}>
+            <button
+              className="button"
+              onClick={() => {
+                rejectJob(job);
+                history.push("/rejectedjob");
+              }}
+            >
               Reject
             </button>
           </div>

@@ -55,8 +55,13 @@ export function* addAcceptedJobAsync({ payload }) {
   try {
     const fetchResult = yield call(axios.post, "/admin/addacceptjob", payload);
     // console.log(fetchResult);
-    alert(fetchResult.data + " Job Added to Accecpted Category !");
-    yield call(fetchLiveJobRestart);
+
+    if (fetchResult.data.errmsg) {
+      alert("This Job is already exists");
+    } else {
+      alert(fetchResult.data + " Job Added to Accecpted Category !");
+    }
+    // yield call(fetchLiveJobRestart);
   } catch (error) {
     alert(error);
   }
@@ -66,8 +71,14 @@ export function* addRejectedJobAsync({ payload }) {
   try {
     const fetchResult = yield call(axios.post, "/admin/addrejectjob", payload);
     // console.log(fetchResult);
-    alert(fetchResult.data + " Job Added to Rejected Category !");
-    yield call(fetchLiveJobRestart);
+
+    if (fetchResult.data.errmsg) {
+      alert("This Job is already exists");
+    } else {
+      alert(fetchResult.data + " Job Added to Rejected Category !");
+    }
+
+    // yield call(fetchLiveJobRestart);
   } catch (error) {
     alert(error);
   }
