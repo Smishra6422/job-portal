@@ -14,7 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const MONGODB_URI =
-  "mongodb+srv://taskapp:MishrA6422@cluster0-fivla.mongodb.net/job";
+  "mongodb+srv://username:password@cluster0-fivla.mongodb.net/clusterName";
 
 mongoose
   .connect(MONGODB_URI, {
